@@ -1,8 +1,9 @@
 package com.example.android.architecture.blueprints.todoapp.statistics
 
 import com.example.android.architecture.blueprints.todoapp.data.Task
+import org.hamcrest.MatcherAssert
 import org.hamcrest.core.Is.`is`
-import org.junit.Assert.*
+
 import org.junit.Test
 
 class StatisticsUtilsTest {
@@ -16,8 +17,8 @@ class StatisticsUtilsTest {
         val result = getActiveAndCompletedStats(tasks)
 
         // Then the percentages are 100 and 0
-        assertThat(result.activeTasksPercent, `is`(100f))
-        assertThat(result.completedTasksPercent, `is`(0f))
+        MatcherAssert.assertThat(result.activeTasksPercent, `is`(100f))
+        MatcherAssert.assertThat(result.completedTasksPercent, `is`(0f))
     }
 
     @Test
@@ -29,8 +30,8 @@ class StatisticsUtilsTest {
         val result = getActiveAndCompletedStats(tasks)
 
         // Then the percentages are 0 and 100
-        assertThat(result.activeTasksPercent, `is`(0f))
-        assertThat(result.completedTasksPercent, `is`(100f))
+        MatcherAssert.assertThat(result.activeTasksPercent, `is`(0f))
+        MatcherAssert.assertThat(result.completedTasksPercent, `is`(100f))
     }
 
     @Test
@@ -47,8 +48,8 @@ class StatisticsUtilsTest {
         val result = getActiveAndCompletedStats(tasks)
 
         // Then the result is 40-60
-        assertThat(result.activeTasksPercent, `is`(40f))
-        assertThat(result.completedTasksPercent, `is`(60f))
+        MatcherAssert.assertThat(result.activeTasksPercent, `is`(40f))
+        MatcherAssert.assertThat(result.completedTasksPercent, `is`(60f))
     }
 
     @Test
@@ -57,8 +58,8 @@ class StatisticsUtilsTest {
         val result = getActiveAndCompletedStats(null)
 
         // Both active and completed tasks are 0
-        assertThat(result.activeTasksPercent, `is`(0f))
-        assertThat(result.completedTasksPercent, `is`(0f))
+        MatcherAssert.assertThat(result.activeTasksPercent, `is`(0f))
+        MatcherAssert.assertThat(result.completedTasksPercent, `is`(0f))
     }
 
     @Test
@@ -67,7 +68,7 @@ class StatisticsUtilsTest {
         val result = getActiveAndCompletedStats(emptyList())
 
         // Both active and completed tasks are 0
-        assertThat(result.activeTasksPercent, `is`(0f))
-        assertThat(result.completedTasksPercent, `is`(0f))
+        MatcherAssert.assertThat(result.activeTasksPercent, `is`(0f))
+        MatcherAssert.assertThat(result.completedTasksPercent, `is`(0f))
     }
 }
